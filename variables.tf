@@ -47,6 +47,11 @@ variable "api_key" {
 #  description = "(Required) VPC ID of VPC for application deployment."
 #}
 
+variable "playbook_repository" {
+  type        = string
+  description = "(Required) URI of Ansible playbook"
+}
+
 variable "tfe_organization" {
   type        = string
   description = "(Required) Name of the TFE Organization"
