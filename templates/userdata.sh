@@ -7,8 +7,8 @@ sudo git clone ${playbook_repository} /var/ansible_playbooks
 
 # BEGIN Added for secrets management
 aws secretsmanager get-secret-value --secret-id "${secret_id}" --region us-east-1 --query SecretString --output text > /var/ansible_playbooks/api_key.txt
-aws ssm get-parameter --name "${host_list_ssm_name}" --region us-east-1 --query Parameter.Value --output text > /var/ansible_playbooks/host_list.txt
-aws ssm get-parameter --name "${site_name_ssm_name}" --region us-east-1 --query Parameter.Value --output text > /var/ansible_playbooks/site_name.txt
+aws ssm get-parameter --name "${host_list_ssm_name}" --region us-east-2 --query Parameter.Value --output text > /var/ansible_playbooks/host_list.txt
+aws ssm get-parameter --name "${site_name_ssm_name}" --region us-east-2 --query Parameter.Value --output text > /var/ansible_playbooks/site_name.txt
 # END secrets management
 
 ansible-playbook /var/ansible_playbooks/playbook.yml -i /var/ansible_playbooks/hosts
